@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Commercial Energy Savings Matrix | Gabriel Marchant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-blue: #0f172a;
+            --brand-green: #059669;
+            --brand-light-green: #ecfdf5;
+        }
+        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .bg-brand-blue { background-color: var(--brand-blue); }
+        .text-brand-green { color: var(--brand-green); }
+        .bg-brand-green { background-color: var(--brand-green); }
+        .border-brand-green { border-color: var(--brand-green); }
+        
+        .step-transition { transition: all 0.3s ease-in-out; }
+        .hidden-step { display: none; opacity: 0; transform: translateX(20px); }
+        .active-step { display: block; opacity: 1; transform: translateX(0); }
+        
+        .signature-font { 
+            font-family: 'Great Vibes', cursive; 
+            transform: rotate(-1deg);
+            filter: brightness(0.8) contrast(1.1);
+        }
+        
+        .official-serif { font-family: 'Libre Baskerville', serif; }
+        
+        .trust-card {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Mobile optimization for form inputs */
+        input { font-size: 16px !important; } 
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 overflow-x-hidden">
+
+    <!-- Simple Navigation -->
+    <nav class="bg-white border-b border-slate-200 px-4 md:px-6 py-4 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="bg-brand-blue text-white p-1.5 rounded">
+                    <i class="fa-solid fa-chart-simple"></i>
+                </div>
+                <span class="font-bold text-base md:text-lg tracking-tight text-slate-900 uppercase">Commercial Energy <span class="text-brand-green">Savings Matrix</span></span>
+            </div>
+            <div class="flex items-center gap-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-check text-brand-green"></i> Secure</span>
+                <span class="hidden sm:flex items-center gap-1.5"><i class="fa-solid fa-lock text-brand-green"></i> Encrypted</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Clear Hero Section -->
+    <header class="bg-brand-blue text-white py-12 md:py-24 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-3xl md:text-6xl font-extrabold mb-4 md:mb-6 tracking-tight leading-tight">
+                Stop Overpaying for <br><span class="text-brand-green">Commercial Energy.</span>
+            </h1>
+            <p class="text-slate-400 text-base md:text-xl max-w-2xl mx-auto leading-relaxed px-4">
+                Most businesses are on the wrong rate plan. I help you find the hidden savings in your bill.
+            </p>
+        </div>
+    </header>
+
+    <!-- Step-by-Step Tool -->
+    <section class="relative -mt-8 md:-mt-12 px-4 md:px-6 pb-20">
+        <div class="max-w-3xl mx-auto bg-white rounded-2xl trust-card overflow-hidden border border-slate-200">
+            
+            <!-- Simple Progress -->
+            <div class="bg-slate-100 h-1.5 w-full">
+                <div id="progress" class="bg-brand-green h-full transition-all duration-500" style="width: 20%;"></div>
+            </div>
+
+            <div class="p-6 md:p-12">
+                
+                <!-- Step 1: Priority -->
+                <div id="step1" class="step-transition active-step">
+                    <div class="flex justify-between items-center mb-2">
+                        <p class="text-brand-green font-bold text-[10px] md:text-sm uppercase tracking-widest">Step 1 of 3</p>
+                        <span class="text-[10px] text-slate-400 font-medium italic"><i class="fa-solid fa-user-shield mr-1"></i> Private & Confidential</span>
+                    </div>
+                    <h2 class="text-xl md:text-3xl font-bold mb-6 md:mb-8 text-slate-900">What is most important to you?</h2>
+                    
+                    <div class="grid gap-4">
+                        <button onclick="nextStep(2, 'predictability')" class="flex items-center text-left p-4 md:p-6 border-2 border-slate-100 rounded-xl hover:border-brand-green hover:bg-emerald-50 transition group active:scale-95">
+                            <div class="bg-slate-100 group-hover:bg-brand-green group-hover:text-white w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-lg mr-4 md:mr-5 transition shrink-0">
+                                <i class="fa-solid fa-shield-halved text-xl md:text-2xl"></i>
+                            </div>
+                            <div>
+                                <span class="block font-bold text-base md:text-lg">Peace of Mind</span>
+                                <span class="text-xs md:text-sm text-slate-500 leading-tight">I want a fixed, predictable bill every month. No surprises.</span>
+                            </div>
+                        </button>
+
+                        <button onclick="nextStep(2, 'savings')" class="flex items-center text-left p-4 md:p-6 border-2 border-slate-100 rounded-xl hover:border-brand-green hover:bg-emerald-50 transition group active:scale-95">
+                            <div class="bg-slate-100 group-hover:bg-brand-green group-hover:text-white w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-lg mr-4 md:mr-5 transition shrink-0">
+                                <i class="fa-solid fa-tags text-xl md:text-2xl"></i>
+                            </div>
+                            <div>
+                                <span class="block font-bold text-base md:text-lg">Lowest Possible Cost</span>
+                                <span class="text-xs md:text-sm text-slate-500 leading-tight">I'm okay with price changes if it means the highest savings.</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Explanation -->
+                <div id="step2" class="step-transition hidden-step">
+                    <div class="flex justify-between items-start mb-2">
+                        <p class="text-brand-green font-bold text-[10px] md:text-sm uppercase tracking-widest">Step 2 of 3</p>
+                        <button onclick="prevStep(1)" class="text-[10px] font-bold text-slate-400 hover:text-slate-600 uppercase tracking-widest flex items-center gap-1">
+                            <i class="fa-solid fa-arrow-left"></i> Back
+                        </button>
+                    </div>
+                    
+                    <!-- Fixed Protection Details -->
+                    <div id="explanation-predict" class="hidden">
+                        <h2 class="text-xl md:text-2xl font-bold mb-4">The "Fixed Protection" Plan</h2>
+                        <p class="text-slate-600 mb-6 text-base leading-relaxed">
+                            Lock in a single rate for your entire contract. Ideal for businesses that need strict budget consistency.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                            <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                                <span class="text-[10px] font-bold text-brand-green uppercase tracking-widest block mb-2">The Positives</span>
+                                <ul class="text-sm text-slate-700 space-y-2">
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-brand-green mt-1 text-xs"></i> 100% Budget certainty</li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-brand-green mt-1 text-xs"></i> Protection from market spikes</li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-brand-green mt-1 text-xs"></i> "Set it and forget it"</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">The Negatives</span>
+                                <ul class="text-sm text-slate-600 space-y-2">
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-circle-minus text-slate-400 mt-1 text-xs"></i> Higher "risk premium" built-in</li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-circle-minus text-slate-400 mt-1 text-xs"></i> Miss out if market prices drop</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Market Savings Details -->
+                    <div id="explanation-savings" class="hidden">
+                        <h2 class="text-xl md:text-2xl font-bold mb-4">The "Market Savings" Plan</h2>
+                        <p class="text-slate-600 mb-6 text-base leading-relaxed">
+                            Pay what the market actually costs. Ideal for high-usage businesses that can be flexible with operations.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                            <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                                <span class="text-[10px] font-bold text-brand-green uppercase tracking-widest block mb-2">The Positives</span>
+                                <ul class="text-sm text-slate-700 space-y-2">
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-brand-green mt-1 text-xs"></i> Lowest overall average cost</li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-brand-green mt-1 text-xs"></i> Direct access to market drops</li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-brand-green mt-1 text-xs"></i> No markup for price insurance</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">The Negatives</span>
+                                <ul class="text-sm text-slate-600 space-y-2">
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-circle-minus text-slate-400 mt-1 text-xs"></i> Variable monthly bills</li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-circle-minus text-slate-400 mt-1 text-xs"></i> Vulnerable to extreme weather</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 rounded-xl p-5 md:p-6 mb-8 flex gap-4 border border-blue-100">
+                        <i class="fa-solid fa-user-tie text-blue-600 text-lg md:text-xl mt-1 shrink-0"></i>
+                        <p class="text-xs md:text-sm text-slate-700 leading-relaxed">
+                            <strong>My Recommendation:</strong> I will analyze your historical usage data to show you exactly how each plan would have performed over the last 12 months.
+                        </p>
+                    </div>
+
+                    <button onclick="nextStep(3)" class="w-full bg-brand-green text-white py-4 md:py-5 rounded-xl font-bold hover:bg-emerald-700 active:scale-95 transition shadow-lg text-base md:text-lg">
+                        Next: Get Your Free Analysis
+                    </button>
+                </div>
+
+                <!-- Step 3: Contact Details -->
+                <div id="step3" class="step-transition hidden-step">
+                    <div class="flex justify-between items-start mb-2">
+                        <p class="text-brand-green font-bold text-[10px] md:text-sm uppercase tracking-widest">Step 3 of 3</p>
+                        <button onclick="prevStep(2)" class="text-[10px] font-bold text-slate-400 hover:text-slate-600 uppercase tracking-widest flex items-center gap-1">
+                            <i class="fa-solid fa-arrow-left"></i> Back
+                        </button>
+                    </div>
+                    <h2 class="text-xl md:text-2xl font-bold mb-6 text-slate-900">Where should I send the report?</h2>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 ml-1">Your Name</label>
+                            <input type="text" id="user-name" placeholder="John Smith" class="w-full p-4 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-green outline-none bg-slate-50 focus:bg-white transition">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 ml-1">Phone Number</label>
+                                <input type="tel" id="user-phone" placeholder="(555) 555-5555" class="w-full p-4 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-green outline-none bg-slate-50 focus:bg-white transition">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5 ml-1">Business Email</label>
+                                <input type="email" id="user-email" placeholder="john@company.com" class="w-full p-4 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-green outline-none bg-slate-50 focus:bg-white transition">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 flex items-center justify-center gap-4 text-[10px] text-slate-400 font-medium">
+                        <span class="flex items-center gap-1 text-slate-500"><i class="fa-solid fa-lock"></i> SSL Encrypted</span>
+                        <span class="flex items-center gap-1 text-slate-500"><i class="fa-solid fa-user-check"></i> No Spam Policy</span>
+                    </div>
+
+                    <button onclick="validateAndNext(4)" class="w-full bg-brand-green text-white py-4 md:py-5 rounded-xl font-bold hover:bg-emerald-700 active:scale-95 transition shadow-lg mt-6 text-base md:text-lg">
+                        Finish & Choose Method
+                    </button>
+                </div>
+
+                <!-- Step 4: Submission Method -->
+                <div id="step4" class="step-transition hidden-step text-center">
+                    <button onclick="prevStep(3)" class="mb-4 text-[10px] font-bold text-slate-400 hover:text-slate-600 uppercase tracking-widest flex items-center gap-1 mx-auto">
+                        <i class="fa-solid fa-arrow-left"></i> Back
+                    </button>
+                    <h2 class="text-xl md:text-2xl font-bold mb-8 text-slate-900">How would you like to send your bill?</h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <button onclick="nextStep(5, 'text')" class="p-6 md:p-8 border-2 border-slate-100 rounded-xl hover:border-brand-green hover:bg-emerald-50 transition group active:scale-95">
+                            <i class="fa-solid fa-comment-sms text-3xl text-slate-300 group-hover:text-brand-green mb-4 block"></i>
+                            <span class="block font-bold text-slate-700">Send Photo via Text</span>
+                        </button>
+
+                        <button onclick="nextStep(5, 'email')" class="p-6 md:p-8 border-2 border-slate-100 rounded-xl hover:border-brand-green hover:bg-emerald-50 transition group active:scale-95">
+                            <i class="fa-solid fa-file-pdf text-3xl text-slate-300 group-hover:text-brand-green mb-4 block"></i>
+                            <span class="block font-bold text-slate-700">Send PDF via Email</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Final Action -->
+                <div id="step5" class="step-transition hidden-step text-center">
+                    <button onclick="prevStep(4)" class="mb-4 text-[10px] font-bold text-slate-400 hover:text-slate-600 uppercase tracking-widest flex items-center gap-1 mx-auto">
+                        <i class="fa-solid fa-arrow-left"></i> Back to Method
+                    </button>
+                    
+                    <div id="action-text" class="hidden">
+                        <h2 class="text-xl md:text-2xl font-bold mb-4 text-slate-900">Just snap a photo</h2>
+                        <p class="text-slate-500 mb-8 text-sm md:text-base">Text a picture of your latest energy bill to my direct line. I'll run the numbers and text you back with what I find.</p>
+                        <a id="text-link" href="#" class="inline-block bg-brand-green text-white px-8 py-5 rounded-xl font-bold text-base md:text-lg hover:bg-emerald-700 shadow-xl active:scale-95 transition-all w-full">
+                            <i class="fa-solid fa-mobile-screen-button mr-2"></i> Text Bill to 214-490-5906
+                        </a>
+                    </div>
+
+                    <div id="action-email" class="hidden">
+                        <h2 class="text-xl md:text-2xl font-bold mb-4 text-slate-900">Email your statement</h2>
+                        <p class="text-slate-500 mb-8 text-sm md:text-base">Email your PDF bill to me. I'll perform a full market audit and send you a summary of potential savings.</p>
+                        <a id="email-link" href="#" class="inline-block bg-brand-blue text-white px-8 py-5 rounded-xl font-bold text-base md:text-lg hover:bg-slate-800 shadow-xl active:scale-95 transition-all w-full">
+                            <i class="fa-solid fa-envelope mr-2"></i> Email gabe@proton.me
+                        </a>
+                    </div>
+                    
+                    <button onclick="restartFunnel()" class="mt-12 text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em] hover:text-brand-green transition">
+                        Start Over from Beginning
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Simplified Signature Statement -->
+    <section class="py-16 md:py-24 px-6 bg-white border-t border-slate-200">
+        <div class="max-w-3xl mx-auto">
+            <div class="bg-slate-50 p-8 md:p-16 rounded-3xl border border-slate-100 relative">
+                <h3 class="text-brand-green text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-8">
+                    My Promise to You
+                </h3>
+                
+                <div class="official-serif text-lg md:text-2xl text-slate-800 leading-relaxed space-y-6 italic">
+                    <p>"I’m not here to sell you a contract. I’m here to make sure your business isn't wasting money."</p>
+                    <p>"As a resident of the Trophy Club area, I work directly with local business owners. I promise to be honest and straightforward."</p>
+                </div>
+
+                <div class="mt-12 flex flex-col items-start">
+                    <div class="signature-font text-5xl md:text-6xl text-brand-blue mb-2 select-none">
+                        Gabriel Marchant
+                    </div>
+                    <div class="h-1 w-32 md:w-48 bg-brand-green mb-3"></div>
+                    <div class="text-slate-500 text-[10px] md:text-xs font-semibold uppercase tracking-widest">
+                        Your Local Energy Advisor
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 px-6 bg-brand-blue text-slate-500 text-center">
+        <p class="text-[10px] uppercase tracking-widest mb-4">Secure Commercial Energy Analysis</p>
+        <p class="text-xs">&copy; 2024 Gabriel Marchant. Local Business Partner.</p>
+    </footer>
+
+    <script>
+        let userStrategy = "";
+
+        function restartFunnel() {
+            // Clear inputs
+            document.getElementById('user-name').value = "";
+            document.getElementById('user-phone').value = "";
+            document.getElementById('user-email').value = "";
+            // Reset strategy
+            userStrategy = "";
+            // Reset UI
+            nextStep(1);
+        }
+
+        function validateAndNext(step) {
+            const name = document.getElementById('user-name').value;
+            const phone = document.getElementById('user-phone').value;
+            const email = document.getElementById('user-email').value;
+
+            let valid = true;
+            [
+                {id: 'user-name', val: name},
+                {id: 'user-phone', val: phone},
+                {id: 'user-email', val: email}
+            ].forEach(item => {
+                const el = document.getElementById(item.id);
+                if (!item.val) {
+                    el.classList.add('border-red-300', 'bg-red-50');
+                    valid = false;
+                } else {
+                    el.classList.remove('border-red-300', 'bg-red-50');
+                }
+            });
+
+            if (valid) nextStep(step);
+        }
+
+        function nextStep(step, choice) {
+            if (choice === 'predictability' || choice === 'savings') {
+                userStrategy = choice;
+            }
+
+            // Scroll to top of funnel area for mobile
+            const funnelTop = document.querySelector('section').offsetTop - 100;
+            window.scrollTo({ top: funnelTop, behavior: 'smooth' });
+
+            document.querySelectorAll('.step-transition').forEach(el => {
+                el.classList.add('hidden-step');
+                el.classList.remove('active-step');
+            });
+
+            const nextEl = document.getElementById('step' + step);
+            if (nextEl) {
+                nextEl.classList.remove('hidden-step');
+                setTimeout(() => nextEl.classList.add('active-step'), 50);
+            }
+
+            const progress = document.getElementById('progress');
+            progress.style.width = (step * 20) + '%';
+
+            if (userStrategy === 'predictability') {
+                document.getElementById('explanation-predict').classList.remove('hidden');
+                document.getElementById('explanation-savings').classList.add('hidden');
+            } else if (userStrategy === 'savings') {
+                document.getElementById('explanation-savings').classList.remove('hidden');
+                document.getElementById('explanation-predict').classList.add('hidden');
+            }
+
+            if (step === 5) {
+                const name = document.getElementById('user-name').value;
+                const phone = document.getElementById('user-phone').value;
+                const email = document.getElementById('user-email').value;
+                const strategyName = userStrategy === 'predictability' ? "Fixed Protection" : "Market Savings";
+                
+                const bodyText = `Hi Gabe, this is ${name} (${phone}). 
+
+I'm interested in the ${strategyName} plan. My email is ${email}. 
+
+I've attached my bill photo below for the free analysis...`;
+
+                const encodedBody = encodeURIComponent(bodyText);
+                
+                const textLink = document.getElementById('text-link');
+                textLink.href = `sms:+12144905906&body=${encodedBody}`;
+
+                const emailLink = document.getElementById('email-link');
+                emailLink.href = `mailto:gabemarchant@proton.me?subject=Energy Analysis - ${name}&body=${encodedBody}`;
+
+                if (choice === 'text') {
+                    document.getElementById('action-text').classList.remove('hidden');
+                    document.getElementById('action-email').classList.add('hidden');
+                } else if (choice === 'email') {
+                    document.getElementById('action-email').classList.remove('hidden');
+                    document.getElementById('action-text').classList.add('hidden');
+                }
+            }
+        }
+
+        function prevStep(step) {
+            nextStep(step);
+        }
+    </script>
+</body>
+</html>

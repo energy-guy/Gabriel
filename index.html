@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trophy Club Energy Advisory | Lower Your Business Overhead</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --royal-blue: #0047AB;
+            --bobcat-black: #000000;
+        }
+        .bg-royal { background-color: var(--royal-blue); }
+        .text-royal { color: var(--royal-blue); }
+        .border-royal { border-color: var(--royal-blue); }
+        
+        .surface-elevated {
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
+        
+        html { scroll-behavior: smooth; }
+        .touch-target { min-height: 48px; }
+
+        .hero-gradient {
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .market-pulse {
+            animation: pulse-red 2s infinite;
+        }
+        @keyframes pulse-red {
+            0% { color: #ef4444; }
+            50% { color: #991b1b; }
+            100% { color: #ef4444; }
+        }
+
+        /* Smooth transition for the scrolling button effect */
+        #mobile-cta {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .scrolling {
+            opacity: 0.2;
+            pointer-events: none; /* Prevents accidental clicks while scrolling */
+        }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans text-slate-900 selection:bg-blue-100 antialiased">
+
+    <!-- 1. Market Urgency Bar -->
+    <div class="bg-black text-white py-2.5 px-6 text-center text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] border-b border-royal">
+        <i class="fas fa-clock market-pulse mr-2"></i> Local Market Alert: Rates Reset Every 24 Hours. Next Reset in <span id="timer">23:59:59</span>
+    </div>
+
+    <!-- 2. Professional Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md border-b border-slate-200 py-5 px-6 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex flex-col">
+                <h1 class="font-black text-xl uppercase tracking-tighter leading-none text-slate-900">
+                    Trophy Club <span class="text-royal">Energy Advisory</span>
+                </h1>
+                <p class="text-[10px] text-slate-500 font-bold uppercase tracking-[0.3em] mt-1">Optimization For Local Business</p>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="tel:2144905906" class="bg-royal text-white px-5 py-2 rounded-full text-xs font-black uppercase tracking-widest hover:bg-black transition-colors">
+                    <i class="fas fa-phone-alt mr-2"></i> 214.490.5906
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3. Hero: Value Proposition -->
+    <header class="hero-gradient pt-16 pb-24 px-6">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7">
+                <div class="inline-flex items-center space-x-2 bg-blue-50 border border-blue-100 px-3 py-1 rounded-full mb-6">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-royal">Local Savings Optimization</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black text-slate-900 leading-[1.0] mb-8 tracking-tighter">
+                    Lower Your Overhead. <br>Grow Your <span class="text-royal">Business.</span>
+                </h1>
+                <p class="text-xl text-slate-600 mb-10 leading-relaxed max-w-xl">
+                    Every dollar spent on high electricity rates is a dollar taken away from your growth. I hunt for the absolute floor price across 90+ Texas suppliers to ensure you are paying the <span class="text-slate-900 font-bold underline decoration-royal">lowest possible rate</span> for your facility.
+                </p>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-lg">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check text-royal text-xs"></i>
+                        <span class="text-[11px] font-black uppercase tracking-widest text-slate-500">Find Cheaper Electric</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check text-royal text-xs"></i>
+                        <span class="text-[11px] font-black uppercase tracking-widest text-slate-500">Stop Overpaying</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-check text-royal text-xs"></i>
+                        <span class="text-[11px] font-black uppercase tracking-widest text-slate-500">Direct Local Support</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conversion Card -->
+            <div class="lg:col-span-5">
+                <div class="surface-elevated rounded-3xl p-8 border border-slate-100 relative overflow-hidden">
+                    <div class="bg-royal h-2 w-full absolute top-0 left-0"></div>
+                    <h2 class="text-2xl font-black mb-2 uppercase italic tracking-tight">Check Your Savings</h2>
+                    <p class="text-xs text-slate-400 font-bold uppercase tracking-widest mb-8">Fast, No-Obligation Rate Analysis</p>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-[11px] font-black text-slate-400 uppercase mb-2 tracking-widest text-left">Business Owner's Name</label>
+                            <input type="text" id="userName" placeholder="Enter your name" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 touch-target font-bold text-lg outline-none focus:ring-2 focus:ring-royal/20 focus:border-royal transition-all">
+                        </div>
+
+                        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                            <h4 class="text-[10px] font-black uppercase text-slate-400 mb-4 tracking-widest">How to get started:</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-6 h-6 rounded-full bg-white flex items-center justify-center text-[10px] font-black royal-text shadow-sm">1</div>
+                                    <p class="text-sm font-bold">Text a photo of your electric bill</p>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-6 h-6 rounded-full bg-white flex items-center justify-center text-[10px] font-black royal-text shadow-sm">2</div>
+                                    <p class="text-sm font-bold">I run a market rate analysis</p>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-6 h-6 rounded-full bg-white flex items-center justify-center text-[10px] font-black royal-text shadow-sm">3</div>
+                                    <p class="text-sm font-bold">Reinvest the savings today</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="sendSMS()" class="w-full bg-royal hover:bg-black text-white font-black py-5 rounded-xl shadow-lg transition-all flex items-center justify-center text-lg uppercase tracking-widest touch-target">
+                            <i class="fas fa-comment-dots mr-3"></i> Get My Analysis
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 4. Focus on Reinvestment -->
+    <section class="py-24 px-6 bg-white border-y border-slate-100">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black uppercase italic tracking-tighter mb-4 text-slate-900">Put Money Back into Your Business.</h2>
+                <p class="text-slate-500 font-medium">Electricity is an essential utility, but it shouldn't be an uncontrollable expense.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-royal mb-6">
+                        <i class="fas fa-percentage fa-lg"></i>
+                    </div>
+                    <h3 class="text-xl font-black uppercase mb-3 text-slate-900 tracking-tight">The Floor Price Guarantee</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed font-medium">
+                        I use professional-grade market tools to find the absolute bottom rate available for your usage profile. My goal is to find you the cheapest electricity possible so you can keep more of your hard-earned revenue.
+                    </p>
+                </div>
+                <div class="p-8 rounded-3xl bg-royal text-white shadow-xl transform md:-translate-y-4">
+                    <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-white mb-6">
+                        <i class="fas fa-chart-pie fa-lg"></i>
+                    </div>
+                    <h3 class="text-xl font-black uppercase mb-3 text-white tracking-tight">Lower Your Monthly Bill</h3>
+                    <p class="text-blue-100 text-sm leading-relaxed font-medium">
+                        A lower bill means more money for payroll, inventory, or expansion. I specialize in identifying the market dips that most businesses miss, locking in rates that protect your margins long-term.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Profile & Local Integrity -->
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/3">
+                <div class="relative group">
+                    <div class="absolute -inset-2 bg-royal rounded-[1.5rem] opacity-10 group-hover:opacity-25 transition-opacity"></div>
+                    <div class="relative rounded-[1.5rem] overflow-hidden shadow-2xl border-4 border-white bg-white">
+                        <img src="https://lh3.googleusercontent.com/d/1irvIX1E4MTqseyc5WuXoX2Q9Zk9MPoBe" alt="Gabriel Marchant" class="w-full h-auto block rounded-[1.2rem]">
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-2/3">
+                <h2 class="text-3xl font-black uppercase italic mb-6 text-slate-900">Local Accountability Matters.</h2>
+                <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                    As your neighbor in Trophy Club, I am committed to absolute transparency. My mission is to help local businesses find the most competitive rates in Texas. If your current plan is already the best the market has to offer, <span class="text-slate-900 font-bold italic">I will tell you to stay exactly where you are.</span> I'm here to support our community's growth, one bill at a time.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <span class="bg-slate-100 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest border border-slate-200">76262 Resident</span>
+                    <span class="bg-slate-100 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest border border-slate-200">Trophy Club Advisor</span>
+                    <span class="bg-slate-100 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest border border-slate-200">Bobcat Coach & Parent</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Mobile Sticky CTA with Scroll Detection Logic -->
+    <div id="mobile-cta" class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-sm z-40 md:hidden">
+        <button onclick="sendSMS()" class="w-full bg-royal text-white font-black py-4 rounded-full shadow-2xl flex items-center justify-center uppercase tracking-widest text-sm border-2 border-white">
+            <i class="fas fa-comment-dots mr-3"></i> Get My Analysis
+        </button>
+    </div>
+
+    <!-- 7. Footer -->
+    <footer class="bg-black text-slate-500 py-16 px-6 text-center">
+        <div class="max-w-2xl mx-auto">
+            <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] mb-8">Serving Roanoke • Trophy Club • Westlake</p>
+            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-loose">
+                &copy; 2024 Trophy Club Energy Advisory. <br>Committed to finding the lowest active market rates for our local partners.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Timer Logic
+        function updateTimer() {
+            const now = new Date();
+            const tomorrow = new Date();
+            tomorrow.setHours(24, 0, 0, 0);
+            const diff = tomorrow - now;
+            const h = Math.floor(diff / 3600000);
+            const m = Math.floor((diff % 3600000) / 60000);
+            const s = Math.floor((diff % 60000) / 1000);
+            document.getElementById('timer').innerText = 
+                `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // SMS Logic
+        function sendSMS() {
+            const userName = document.getElementById('userName').value.trim() || "Business Owner";
+            const message = `Hi Gabriel, this is ${userName}. I'm looking to lower my business energy bill. Can you perform a rate analysis for my recent bill?`;
+            const encodedMsg = encodeURIComponent(message);
+            window.location.href = `sms:2144905906?body=${encodedMsg}`;
+        }
+
+        // Scroll Transparency Logic
+        const cta = document.getElementById('mobile-cta');
+        let scrollTimer = null;
+
+        window.addEventListener('scroll', function() {
+            // Add 'scrolling' class to trigger transparency
+            if (!cta.classList.contains('scrolling')) {
+                cta.classList.add('scrolling');
+            }
+
+            // Clear the previous timer and start a new one
+            window.clearTimeout(scrollTimer);
+
+            // Once user stops for 150ms, show the button again
+            scrollTimer = setTimeout(function() {
+                cta.classList.remove('scrolling');
+            }, 150);
+        }, false);
+    </script>
+</body>
+</html>

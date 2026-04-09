@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel | Your Local Energy Advisor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0f172a',
+                        action: '#2563eb',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
+        body { -webkit-tap-highlight-color: transparent; }
+        .logo-compact { letter-spacing: -0.06em; }
+        
+        .bg-dots {
+            background-image: radial-gradient(#e2e8f0 1.5px, transparent 1.5px);
+            background-size: 32px 32px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .btn-active:active {
+            transform: scale(0.96);
+        }
+
+        /* Custom zoom animation logic */
+        .quote-zoom {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), z-index 0s;
+            transform-origin: center center;
+        }
+        
+        /* Mobile touch and Desktop hover support */
+        .quote-container:hover .quote-zoom,
+        .quote-container:active .quote-zoom {
+            transform: scale(1.75);
+            z-index: 40;
+            cursor: zoom-out;
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-navy antialiased">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center shrink-0">
+                <div class="flex items-center text-2xl font-black italic uppercase text-navy logo-compact">
+                    <span>GABRI</span>
+                    <div class="inline-flex items-center justify-center -mx-1 translate-y-[-1px] translate-x-[10%]">
+                        <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-action">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <span>L</span>
+                </div>
+                <div class="hidden sm:flex items-center">
+                    <span class="text-slate-300 font-light text-2xl mx-2 pb-1">|</span>
+                    <span class="text-[8px] text-slate-500 tracking-[0.1em] uppercase font-bold pt-1">Energy Advisor</span>
+                </div>
+            </div>
+            
+            <a href="sms:2144905906&body=Hi%20Gabriel,%20I'm%20attaching%20a%20photo%20of%20my%20bill%20now%20to%20find%20my%20lowest%20rate." 
+               class="btn-active flex items-center gap-2 bg-action text-white px-4 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-tight italic shadow-lg shadow-action/20 transition-all">
+                <i data-lucide="camera" class="w-3.5 h-3.5"></i>
+                <span>Find My Lowest Rate</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-16 pb-12 px-6 bg-dots">
+        <div class="max-w-2xl mx-auto text-center">
+            <h1 class="text-6xl sm:text-7xl md:text-8xl font-black uppercase italic leading-[0.85] tracking-tighter mb-8 text-balance">
+                Lower Your <br>Electric Bill <br>In Under <span class="text-action">5 Minutes.</span>
+            </h1>
+            
+            <p class="text-slate-600 font-medium text-xl leading-snug mb-2 text-balance max-w-lg mx-auto">
+                Just text me a photo of your current bill. I'll compare every provider in Texas to find you a better price instantly.
+            </p>
+            
+            <div class="flex items-center justify-center gap-3 mt-8">
+                <span class="h-px w-6 bg-slate-200"></span>
+                <p class="font-bold text-slate-400 italic text-[10px] uppercase tracking-widest">
+                    No meetings • No sales pitches
+                </p>
+                <span class="h-px w-6 bg-slate-200"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Instructions -->
+    <section class="max-w-xl mx-auto px-6 py-12 space-y-6 mb-8">
+        <div class="reveal bg-slate-50 p-8 rounded-[2.5rem] flex flex-col items-center text-center gap-4 border border-slate-100 shadow-sm">
+            <div class="bg-navy text-white text-xs font-black w-10 h-10 flex items-center justify-center rounded-xl italic shadow-lg shadow-navy/20">1</div>
+            <h3 class="font-black uppercase italic text-navy text-xl">Snap a photo</h3>
+            <p class="text-slate-600 font-medium text-sm sm:text-base">Take a quick picture of your latest electricity bill sitting on your desk.</p>
+        </div>
+
+        <div class="reveal bg-slate-50 p-8 rounded-[2.5rem] flex flex-col items-center text-center gap-4 border border-slate-100 shadow-sm">
+            <div class="bg-navy text-white text-xs font-black w-10 h-10 flex items-center justify-center rounded-xl italic shadow-lg shadow-navy/20">2</div>
+            <h3 class="font-black uppercase italic text-navy text-xl">Text it to me</h3>
+            <p class="text-slate-600 font-medium text-sm sm:text-base">Send that photo directly to my office. I'll run the numbers for you immediately.</p>
+        </div>
+
+        <div class="reveal bg-slate-50 p-8 rounded-[2.5rem] flex flex-col items-center text-center gap-4 border border-slate-100 shadow-sm">
+            <div class="bg-navy text-white text-xs font-black w-10 h-10 flex items-center justify-center rounded-xl italic shadow-lg shadow-navy/20">3</div>
+            <h3 class="font-black uppercase italic text-navy text-xl">Start Saving</h3>
+            <p class="text-slate-600 font-medium text-sm sm:text-base">I text you back the lowest rate available. If you save money, we switch. If not, you stay put.</p>
+        </div>
+    </section>
+
+    <!-- Example Quote Section -->
+    <section class="max-w-xl mx-auto px-6 py-12 mb-16 border-t border-slate-100">
+        <div class="reveal flex flex-col items-center text-center space-y-8">
+            <div class="space-y-2">
+                <h2 class="text-3xl font-black uppercase italic text-navy tracking-tighter">Your Instant Results</h2>
+                <p class="text-slate-500 font-medium text-sm">Tap or hover to see the savings details.</p>
+            </div>
+            
+            <!-- UX: Optimized Zoom Container -->
+            <div class="quote-container relative w-full group">
+                <div class="w-full rounded-[2rem] overflow-visible bg-slate-100 border-4 border-white shadow-2xl relative">
+                    <img src="https://lh3.googleusercontent.com/d/1crzWc2C9huLGVYGEsiQ_miXS2-Oa1j1X" 
+                         alt="Example Energy Quote Comparison" 
+                         class="quote-zoom w-full h-auto block rounded-[1.8rem] cursor-zoom-in relative z-10">
+                </div>
+            </div>
+
+            <div class="space-y-4 max-w-lg relative z-0">
+                <p class="text-slate-600 font-medium leading-relaxed">
+                    As soon as I receive a photo of your bill, I use those details to generate a custom quote instantly. 
+                </p>
+                <p class="text-slate-600 font-medium leading-relaxed">
+                    You'll see exactly how your current rate compares to the lowest options available on the market right now—giving you the data to make an informed decision for your business in seconds.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="max-w-xl mx-auto px-6 py-12 mb-24 border-t border-slate-100">
+        <div class="reveal flex flex-col items-center text-center space-y-8">
+            <h2 class="text-3xl font-black uppercase italic text-navy tracking-tighter">Meet Your Neighbor</h2>
+            
+            <div class="w-full rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-100">
+                <img src="https://lh3.googleusercontent.com/d/1bwjQABzOsqZXki16dtkC4TuyulGSJUhB" alt="Gabriel and Family" class="w-full h-auto block">
+            </div>
+
+            <div class="space-y-4 max-w-lg">
+                <p class="text-slate-600 font-medium leading-relaxed">
+                    Hi, I'm Gabriel. My family and I moved to Trophy Club about a year ago, and we've loved every minute of building our roots here. 
+                </p>
+                <p class="text-slate-600 font-medium leading-relaxed">
+                    When I'm not helping local businesses find better rates, you'll probably find me coaching youth sports around the Independence Fields or serving at Milestone Church. I'm not a call center—I'm your neighbor, and I'm here to help our local businesses thrive.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <div class="fixed bottom-0 left-0 w-full p-4 z-50 bg-white/90 backdrop-blur-lg border-t border-slate-100">
+        <div class="max-w-xl mx-auto">
+            <a href="sms:2144905906&body=Hi%20Gabriel,%20I'm%20attaching%20a%20photo%20of%20my%20bill%20now%20to%20find%20my%20lowest%20rate." 
+               class="btn-active flex items-center justify-center gap-3 bg-action text-white py-5 rounded-2xl font-black uppercase italic tracking-tight shadow-xl shadow-action/30 transition-all">
+                <i data-lucide="camera" class="w-6 h-6"></i>
+                <span>Find My Lowest Rate</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white py-16 px-6 text-center pb-36 border-t border-slate-100">
+        <div class="max-w-xl mx-auto">
+            <div class="flex items-center justify-center text-2xl font-black italic uppercase text-navy logo-compact mb-2">
+                <div class="flex items-center shrink-0">
+                    <div class="flex items-center font-black italic uppercase text-navy">
+                        <span>GABRI</span>
+                        <div class="inline-flex items-center justify-center -mx-1 translate-y-[-1px] translate-x-[10%]">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-action">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            </svg>
+                        </div>
+                        <span>L</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-slate-300 font-light text-2xl mx-2 pb-1">|</span>
+                        <span class="text-[9px] text-slate-500 tracking-[0.1em] uppercase font-bold pt-1">Your Local Energy Advisor</span>
+                    </div>
+                </div>
+            </div>
+            <p class="text-slate-400 text-[9px] font-bold uppercase tracking-[0.3em] mt-4">
+                Trophy Club • Roanoke • Keller • Haslet • Alliance
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
